@@ -17,7 +17,6 @@ let todos = [];
 
 //Define Routes//
 app.get("/", (req, res) => {
-let todos = [];
 	// Render the index view with the to-do items//
 	res.render("index", { todos: todos });
 });
