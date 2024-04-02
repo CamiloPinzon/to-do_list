@@ -13,14 +13,14 @@ app.use(express.static("public"));
 //Set the view engine to EJS//
 app.set("view engine", "ejs");
 
-//Define Routes//
-app.get("/", (req, res) => {
-    // Render the index view with the to-do items//
-	res.render("index", { todos: todos });
-});
-
 let todos = [];
 
+//Define Routes//
+app.get("/", (req, res) => {
+let todos = [];
+	// Render the index view with the to-do items//
+	res.render("index", { todos: todos });
+});
 app.post("/", (req, res) => {
 	//Extract the submitted to-do item from the request body//
 	const newTodo = req.body.todoItem;
