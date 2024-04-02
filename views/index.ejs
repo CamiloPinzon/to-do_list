@@ -18,9 +18,15 @@
 		</form>
 		<ul>
 			<!-- Iterate over the array of to-do items -->
-			<% todos.forEach(todo => { %>
-			<li><%= todo %></li>
+			<% todos.forEach((todo, index) => { %>
+            <!-- Render each to-do item as a list item -->
+			<li>
+				<input type="checkbox" id="todo<%= index %>" value="<%= todo %>" onclick="handleClick(event)" <% if(todo.completed){ %> checked <% } %>/>
+				<label for="todo<%= index %>"><%= todo %></label>
+			</li>
 			<% }); %>
 		</ul>
+
 	</body>
+    <script src="./script.js"></script>
 </html>

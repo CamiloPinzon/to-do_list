@@ -5,20 +5,22 @@ const bodyParser = require("body-parser");
 //create Express app//
 const app = express();
 
-//Set the view engine to EJS//
-app.set("view engine", "ejs");
 
 //Use body-parser middleware to parse incoming request bodies//
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
+//Set the view engine to EJS//
+app.set("view engine", "ejs");
 
 let todos = [];
 
 //Define Routes//
 app.get("/", (req, res) => {
+let todos = [];
 	// Render the index view with the to-do items//
 	res.render("index", { todos: todos });
 });
-
 app.post("/", (req, res) => {
 	//Extract the submitted to-do item from the request body//
 	const newTodo = req.body.todoItem;
