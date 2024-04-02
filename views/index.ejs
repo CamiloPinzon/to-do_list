@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
-</head>
-<body>
-    <h1>To-Do List</h1>
-    <form action="/" method="POST">
-        <input type="text" name="todoItem" id="todoItem" placeholder="Add a new To-Do Item">
-        <button type="submit">Add</button>
-    </form>
-    <ul>
-        <!-- Iterate over the array of to-do items -->
-        <% todos.forEach(todo => { %>
-            <li><%= todo %></li>
-        <% }); %>
-    </ul>
-
-    <script src="script.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>To-Do List</title>
+	</head>
+	<body>
+		<h1>To-Do List</h1>
+		<form action="/" method="POST">
+			<input
+				type="text"
+				name="todoItem"
+				id="todoItem"
+				placeholder="Add a new To-Do Item"
+			/>
+			<button type="submit">Add</button>
+		</form>
+		<ul>
+			<!-- Iterate over the array of to-do items -->
+			<% todos.forEach(todo => { %>
+			<li><%= todo %></li>
+			<% }); %>
+		</ul>
+	</body>
 </html>

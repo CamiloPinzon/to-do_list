@@ -11,10 +11,23 @@ app.set("view engine", "ejs");
 //Use body-parser middleware to parse incoming request bodies//
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let todos = [];
+
 //Define Routes//
 app.get("/", (req, res) => {
-	const todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"]; // replace with actual to-do items
+	// Render the index view with the to-do items//
 	res.render("index", { todos: todos });
+});
+
+app.post("/", (req, res) => {
+	//Extract the submitted to-do item from the request body//
+	const newTodo = req.body.todoItem;
+
+	//Add the new to-do item to the array of to-do items//
+	todos.push(newTodo);
+
+	//Redirect the user back to the index view to re render the updated list//
+	res.redirect("/");
 });
 
 //Set Up Server//
