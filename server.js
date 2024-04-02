@@ -5,12 +5,16 @@ const bodyParser = require("body-parser");
 //create Express app//
 const app = express();
 
+//Set the view engine to EJS//
+app.set("view engine", "ejs");
+
 //Use body-parser middleware to parse incoming request bodies//
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Define Routes//
 app.get("/", (req, res) => {
-	res.send("Hello World!"); //replace with rendering html template
+	const todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"]; // replace with actual to-do items
+	res.render("index", { todos: todos });
 });
 
 //Set Up Server//
