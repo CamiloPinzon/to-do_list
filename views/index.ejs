@@ -12,7 +12,10 @@
         <button type="submit">Add</button>
     </form>
     <ul>
-        <!-- to do items goes here-->
+        <!-- Iterate over the array of to-do items -->
+        <% todos.foreach(todo => { %>
+            <li><%= todo %></li>
+        <% }); %>
     </ul>
 </body>
 </html>
