@@ -21,8 +21,9 @@
 			<% todos.forEach((todo, index) => { %>
             <!-- Render each to-do item as a list item -->
 			<li>
-				<input type="checkbox" id="todo<%= index %>" value="<%= todo %>" onclick="handleClick(event)" <% if(todo.completed){ %> checked <% } %>/>
-				<label for="todo<%= index %>"><%= todo %></label>
+				<input type="checkbox" id="todo-<%= index %>" value="<%= todo %>" onclick="handleClick(event)" <% if(todo.completed){ %> checked <% } %>/>
+				<label for="todo-<%= index %>"><%= todo %></label>
+				<button type="button" id="delete-<%= index %>" onclick="handleDelete(event)">Delete</button>
 			</li>
 			<% }); %>
 		</ul>

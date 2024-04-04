@@ -17,10 +17,18 @@ app.set("view engine", "ejs");
 let todos = [];
 
 //Define Routes//
-app.get("/", (req, res) => {
+app.get("/", (__, res) => {
 	// Render the index view with the to-do items//
 	res.render("index", { todos: todos });
 });
+
+app.delete("/delete/:id", (req, res) => {
+	const idToDelete = req.params.id;
+	//Delete item from the array of to-do items in the position idToDelete//
+	todos.splice(idToDelete, 1);
+	res.sendStatus(200);
+})
+
 app.post("/", (req, res) => {
 	//Extract the submitted to-do item from the request body//
 	const newTodo = req.body.todoItem;
