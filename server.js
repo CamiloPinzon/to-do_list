@@ -13,6 +13,7 @@ app.use(express.static("public"));
 //Set the view engine to EJS//
 app.set("view engine", "ejs");
 
+//Define an array of to-do items//
 let todos = [];
 
 //Define Routes//
