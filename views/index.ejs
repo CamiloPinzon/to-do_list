@@ -4,29 +4,35 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>To-Do List</title>
+		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
 		<h1>To-Do List</h1>
-		<form action="/" method="POST">
-			<input
-				type="text"
-				name="todoItem"
-				id="todoItem"
-				placeholder="Add a new To-Do Item"
-			/>
-			<button type="submit">Add</button>
-		</form>
-		<ul>
-			<!-- Iterate over the array of to-do items -->
-			<% todos.forEach((todo, index) => { %>
-            <!-- Render each to-do item as a list item -->
-			<li>
-				<input type="checkbox" id="todo-<%= index %>" value="<%= todo %>" onclick="handleClick(event)" <% if(todo.completed){ %> checked <% } %>/>
-				<label for="todo-<%= index %>"><%= todo %></label>
-				<button type="button" id="delete-<%= index %>" onclick="handleDelete(event)">Delete</button>
-			</li>
-			<% }); %>
-		</ul>
+		<main>
+			<div class="container">
+				<form action="/" method="POST">
+					<input
+						type="text"
+						name="todoItem"
+						id="todoItem"
+						placeholder="Add a new To-Do Item"
+					/>
+					<button type="submit" class="submit-btn">Add to-do</button>
+				</form>
+			</div>
+			<ul class="container">
+				<!-- Iterate over the array of to-do items -->
+				<% todos.forEach((todo, index) => { %>
+				<!-- Render each to-do item as a list item -->
+				<li id="todos__item">
+					<span><%= todo %></span>
+					<div class="todos__buttons">
+						<button class="todos__item__delete" type="button" id="delete-<%= index %>" onclick="handleDelete(event)"><b>X</b></button>
+					</div>
+				</li>
+				<% }); %>
+			</ul>
+		</main>
 
 	</body>
     <script src="./script.js"></script>
